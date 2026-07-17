@@ -1,4 +1,5 @@
 
+// ===== DATA =====
 
 let books = [
     {
@@ -115,8 +116,49 @@ let books = [
     }
 ];
 
-// function init() {
-//   renderBooks();
-// }
+// ===== INIT =====
 
-// init();
+function init() {
+  renderBooks();
+}
+
+init();
+
+// ===== RENDER =====
+
+function renderBooks() {
+    const bookCardRef = document.getElementById("content");
+    bookCardRef.innerHTML = "";
+
+    for (let i = 0; i < books.length; i++) {
+        bookCardRef.innerHTML += getBookTemplate(i);  
+    }
+}
+
+// ===== TEMPLATES =====
+
+function getBookTemplate(i) {
+    return /*html*/`
+        <div class="book-card">
+
+        </div>
+        
+        
+    `
+}
+
+// ===== ACTIONS =====
+
+function toggleLike(i) {
+  if (books[i].liked) {
+    books[i].liked = false;
+    books[i].likes = books[i].likes - 1;   
+  } else {
+    books[i].liked = true;
+    books[i].likes = books[i].likes + 1;   
+  }
+
+  renderBooks();
+}
+// toggleLike(index)
+// addComment(index)
