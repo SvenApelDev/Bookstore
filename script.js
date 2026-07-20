@@ -85,7 +85,8 @@ let books = [
 // ===== INIT =====
 
 function init() {
-  renderBooks();
+    getFromLocalStorage();
+    renderBooks();
 }
 
 init();
@@ -165,6 +166,22 @@ function getCommentsTemplate(i) {
     return commentsHTML;
 }
 
+function saveToLocalStorage() {
+    localStorage.setItem("books", JSON.stringify(books));
+}
+
+function getFromLocalStorage() {
+    const savedBooks = localStorage.getItem("books");
+    if (savedBooks) {
+        books = JSON.parse(savedBooks);
+    }
+}
+
+// localStorage.setItem("lastname", "Smith");
+// localStorage.getItem("lastname");
+
+//function saveData()
+
 // ===== ACTIONS =====
 
 function toggleLike(i) {
@@ -175,7 +192,7 @@ function toggleLike(i) {
     books[i].liked = true;
     books[i].likes = books[i].likes + 1;   
   }
-
+  saveToLocalStorage();
   renderBooks();
 }
 
@@ -187,8 +204,9 @@ function addComment(i) {
         return;
     }
     
-    books[i].comments.push({ name: "Du", comment: text });
+    books[i].comments.push({ name: "Max Mustermann", comment: text });
 
+    saveToLocalStorage();
     renderBooks();
 }
 
