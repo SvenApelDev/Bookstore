@@ -3,14 +3,14 @@
 
 let books = [
     {
-        title: 'Erstes Buch',
-        image: 'assets/img/erstes-buch.jpg',
-        author: 'Sven Apel',
+        title: 'Dieter Rams: Less and More',
+        image: 'assets/images/book-rams.png',
+        author: 'Klaus Klemp & Keiko Ueki-Polet',
         likes: 123,
         liked: false,
-        price: 12.80,
-        publishedYear: 1980,
-        genre: 'Fantasy',
+        price: '80,00 €',
+        publishedYear: 2009,
+        genre: 'Design / Monografie / Produktgestaltung',
         comments: [
             {
                 name: 'Leser123',
@@ -31,14 +31,14 @@ let books = [
         ]
     },
     {
-        title: 'Zweites Buch',
-        image: 'assets/img/zweites-buch.jpg',
-        author: 'Emil Eckl',
+        title: 'Paul Rand: A Designers Art',
+        image: 'assets/images/book-rand.png',
+        author: 'Paul Rand',
         likes: 126,
         liked: false,
-        price: 15.60,
-        publishedYear: 2000,
-        genre: 'Drama',
+        price: '50,00 €',
+        publishedYear: 1985,
+        genre: 'Grafikdesign / Kunstgeschichte / Corporate Design',
         comments: [
             {
                 name: 'Leser123',
@@ -59,14 +59,14 @@ let books = [
         ]
     },
     {
-        title: 'Drittes Buch',
-        image: 'assets/img/drittes-buch.jpg',
-        author: 'Nick Tunger',
+        title: 'Steve Jobs',
+        image: 'assets/images/book-jobs.png',
+        author: 'Walter Isaacson',
         likes: 1263,
         liked: false,
-        price: 19.10,
-        publishedYear: 2001,
-        genre: 'Adventure',
+        price: '35,00 €',
+        publishedYear: 2011,
+        genre: 'Biografie / Sachbuch',
         comments: [
             {
                 name: 'Leser123',
@@ -87,14 +87,14 @@ let books = [
         ]
     },
     {
-        title: 'Viertes Buch',
-        image: 'assets/img/viertes-buch.jpg',
-        author: 'Linda Tunger',
+        title: 'Sagmeister: Made You Look',
+        image: 'assets/images/book-sagmeister.png',
+        author: 'Stefan Sagmeister & Peter Hall',
         likes: 304,
         liked: true,
-        price: 10.90,
-        publishedYear: 2012,
-        genre: 'Comedy',
+        price: '45,00 €',
+        publishedYear: 2001,
+        genre: 'Grafikdesign / Visuelle Kunst / Monografie',
         comments: [
             {
                 name: 'Leser123',
@@ -140,11 +140,20 @@ function renderBooks() {
 function getBookTemplate(i) {
     return /*html*/`
         <div class="book-card">
+            <h2>${books[i].title}</h2>
+            <img src="${books[i].image}" alt="${books[i].title}">
+            <span>${books[i].likes}</span>
+            <button onclick="toggleLike(${i})" class="like-btn"><img src="${getHeartIcon(i)}" alt=""></button>           
+        </div>       
+    `;
+}
 
-        </div>
-        
-        
-    `
+function getHeartIcon(i) {
+    if (books[i].liked) {
+        return 'assets/icons/favorite_fill_1.svg';
+    } else {
+        return 'assets/icons/favorite_fill_0.svg';
+    }
 }
 
 // ===== ACTIONS =====
