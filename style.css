@@ -69,10 +69,11 @@ body {
     img {
         width: 180px;
         height: auto;
+        object-fit: contain;
     }
 }
 
-.like-btn {
+.like-heart-btn {
     width: 40px;
     height: 40px;
     background-color: grey;
