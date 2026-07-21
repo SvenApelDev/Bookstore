@@ -1,60 +1,72 @@
+/* ===== FONTS ===== */
+
 /* montserrat-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
 }
 /* montserrat-600 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  src: url('assets/fonts/montserrat-v31-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url('assets/fonts/montserrat-v31-latin-600.woff2') format('woff2');
 }
 /* montserrat-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: url('assets/fonts/montserrat-v31-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
 }
 /* montserrat-800 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 800;
-  src: url('assets/fonts/montserrat-v31-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: url('assets/fonts/montserrat-v31-latin-800.woff2') format('woff2');
 }
 
 /* google-sans-flex-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Google Sans Flex';
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/google-sans-flex-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Google Sans Flex';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/google-sans-flex-v21-latin-regular.woff2') format('woff2');
 }
 /* google-sans-flex-600 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Google Sans Flex';
-  font-style: normal;
-  font-weight: 600;
-  src: url('assets/fonts/google-sans-flex-v21-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Google Sans Flex';
+    font-style: normal;
+    font-weight: 600;
+    src: url('assets/fonts/google-sans-flex-v21-latin-600.woff2') format('woff2');
+}
+/* google-sans-flex-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: 'Google Sans Flex';
+    font-style: normal;
+    font-weight: 700;
+    src: url('assets/fonts/google-sans-flex-v21-latin-700.woff2') format('woff2');
 }
 /* google-sans-flex-800 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Google Sans Flex';
-  font-style: normal;
-  font-weight: 800;
-  src: url('assets/fonts/google-sans-flex-v21-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-display: swap;
+    font-family: 'Google Sans Flex';
+    font-style: normal;
+    font-weight: 800;
+    src: url('assets/fonts/google-sans-flex-v21-latin-800.woff2') format('woff2');
 }
+
+/* ===== RESET ===== */
 
 * {
     padding: 0;
@@ -66,12 +78,14 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-size: 1rem;
     font-weight: 400;
+    color: #090909;
 }
+
+/* ===== HEADER ===== */
 
 header {
     width: 100%;
     height: 80px;
-
     padding: 1rem;
 
     display: flex;
@@ -94,10 +108,18 @@ header {
     }
 }
 
+/* ===== MAIN ===== */
+
 main {
     background-color: #EAEEE6;
     padding: 4rem max(1rem, calc(50% - 720px));
 
+    h2 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+    }
 }
 
 #content {
@@ -107,8 +129,11 @@ main {
     gap: 24px;
 }
 
+/* ===== BOOK CARD ===== */
+
 .book-card {
     width: 288px;
+    height: 640px;
 
     display: flex;
     flex-direction: column;
@@ -118,14 +143,13 @@ main {
     background-color: #FAFFF3;
     overflow: hidden;
 
-    .product-details,
-    .user-comments {
+    .container-product {
     width: 100%;
-    padding: 1rem;
+    flex: 1;
     }
 
     h3 {
-        padding: 8px;
+        padding: 1rem 1rem 0.5rem 1rem;
         font-size: 1.5rem;
         font-weight: 800;
         text-align: left;
@@ -133,29 +157,106 @@ main {
 
     .product-img {
         width: 100%;
-        height: 288px;
-        padding: 2rem;
+        height: 244px;
+        padding: 1rem;
         object-fit: contain;
         background-color: #fff;
         border-bottom: 1px solid #D7DAD4;
     }
 
+    .product-details {
+        width: 100%;
+        padding: 0.5rem 1rem 1rem 1rem;
+        font-size: 16px;
+
+        p {
+            padding-bottom: 0.25rem;
+        }
+    }
+
+    .product-author {
+        font-weight: 600;
+    }
+
     .divider {
         width: 100%;
-        margin: 0;
+        margin: 0.5rem 0;
         border: none;
         border-top: 1px solid #D7DAD4;
     }
 
-    .product-author { 
-        font-weight: 600; 
+    .cont-like-price {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+        }
     }
 
-    .cont-like-price {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .like-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .like-heart-btn {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+    }
+
+    .comments {
+        font-family: inherit;
+        font-size: 1rem;
+        color: #090909;
+        margin-bottom: 1rem;
+    }
+
+    .comments-name {
+        font-weight: 600;
+    }
+
+    .user-comments {
+        width: 100%;
+        height: 120px;
+        overflow-y: auto;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+        background-color: #EBF2E5;
+        border-radius: 0.5rem;
+    }
+
+    .form-comment {
+        padding: 0 1rem 1rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        input {
+            width: 190px;
+            height: 40px;
+            padding: 0.75rem;
+            font-family: inherit;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #EBF2E5;
+        }
+
+        input::placeholder {
+            color: #585955;
+        }
     }
 
     .send-btn {
@@ -174,43 +275,14 @@ main {
             width: 24px;
             height: 24px;
         }
-
-    }
-        .form-comments {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
     }
 }
 
-    .like-heart-btn {
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        background-color: transparent;
-        border: none;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        cursor: pointer;
-
-    img {
-        width: 32px;
-        height: 32px;
-        display: block;
-    }
-    }
-    .like-group {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+/* ===== FOOTER ===== */
 
 footer {
     width: 100%;
     height: 80px;
-
     padding: 1rem;
 
     display: flex;
@@ -222,7 +294,7 @@ footer {
         height: auto;
     }
 
-        span {
+    span {
         font-family: 'Montserrat', sans-serif;
         font-size: 1.5rem;
         font-weight: 600;

@@ -10,13 +10,8 @@ let books = [
         liked: false,
         price: 80.00,
         publishedYear: 2009,
-        genre: 'Design / Monografie / Produktgestaltung',
-        comments: [
-            {
-                name: 'Leser123',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            },
-        ]
+        genre: 'Produktdesign / Monografie',
+        comments: []
     },
     {
         title: 'A Designers Art',
@@ -26,13 +21,8 @@ let books = [
         liked: false,
         price: 50.00,
         publishedYear: 1985,
-        genre: 'Grafikdesign / Kunstgeschichte / Corporate Design',
-        comments: [
-            {
-                name: 'Leser123',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            },
-        ]
+        genre: 'Design / Kunstgeschichte',
+        comments: []
     },
     {
         title: 'Steve Jobs',
@@ -42,7 +32,7 @@ let books = [
         liked: false,
         price: 35.00,
         publishedYear: 2011,
-        genre: 'Biografie / Sachbuch',
+        genre: 'Biografie',
         comments: []
     },
     {
@@ -53,7 +43,7 @@ let books = [
         liked: true,
         price: 45.00,
         publishedYear: 2001,
-        genre: 'Grafikdesign / Visuelle Kunst / Monografie',
+        genre: 'Grafikdesign / Monografie',
         comments: []
     }
 ];
@@ -97,33 +87,31 @@ function getHeartIcon(i) {
 
 function getBookTemplate(i) {
     return /*html*/`
-        <div class="book-card">            
-            <img class="product-img" src="${books[i].image}" alt="${books[i].title}">
-            <h3>${books[i].title}</h3>
+        <div class="book-card">
+            <div class="container-product">          
+                <img class="product-img" src="${books[i].image}" alt="${books[i].title}">
+                <h3>${books[i].title}</h3>
 
-            <div class="product-details">
-                <!-- Autor -->
-                <p class="product-author">${books[i].author}</p>    
-                <!-- Genre -->
-                <p class="product-genre">${books[i].genre}</p>    
-                <!-- Veröffentlichung -->
-                <p class="product-date">${books[i].publishedYear}</p>
-                <hr class="divider">
-                <div class="cont-like-price">
-                    <div class="like-group">
-                        <button onclick="toggleLike(${i})" class="like-heart-btn"><img src="${getHeartIcon(i)}" alt=""></button>
-                        <span>${books[i].likes}</span>
+                <div class="product-details">
+                    <p class="product-author">${books[i].author}</p>    
+                    <p class="product-genre">${books[i].genre}</p>    
+                    <p class="product-date">${books[i].publishedYear}</p>
+                    <hr class="divider">
+                    <div class="cont-like-price">
+                        <div class="like-group">
+                            <button onclick="toggleLike(${i})" class="like-heart-btn"><img src="${getHeartIcon(i)}" alt=""></button>
+                            <span>${books[i].likes}</span>
+                        </div>
+                        <data class="price" value="${books[i].price}">${getFormattedPrice(i)}</data>              
                     </div>
-                    <data value="${books[i].price}">${getFormattedPrice(i)}</data>              
+                    <div class="user-comments">
+                        ${getCommentsTemplate(i)}
+                    </div>
                 </div>
-                <hr class="divider">
             </div>
-            <div class="user-comments">
-                ${getCommentsTemplate(i)}
-                <div class="form-comments">
-                    <input type="text" id="comment-input-${i}" placeholder="Kommentar schreiben...">
-                    <button class="send-btn" onclick="addComment(${i})"><img src="assets/icons/send.svg" alt="send commit"></button>
-                </div>
+            <div class="form-comment">
+                <input class="input-field" type="text" id="comment-input-${i}" placeholder="Kommentar schreiben...">
+                <button class="send-btn" onclick="addComment(${i})"><img src="assets/icons/send.svg" alt="send commit"></button>
             </div>  
         </div>       
     `;
@@ -136,8 +124,10 @@ function getCommentsTemplate(i) {
     let commentsHTML = "";
     for (let j = 0; j < books[i].comments.length; j++) {
         commentsHTML += /*html*/`
+        <div class="comments">
             <p class="comments-name">${books[i].comments[j].name}</p>
-            <p class="comments-text">${books[i].comments[j].comment}</p>        
+            <p class="comments-text">${books[i].comments[j].comment}</p>
+    </div>      
         `;        
     }
     return commentsHTML;
