@@ -1,3 +1,35 @@
+/* montserrat-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/montserrat-v31-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/montserrat-v31-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  src: url('assets/fonts/montserrat-v31-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 /* google-sans-flex-regular - latin */
 @font-face {
@@ -31,12 +63,12 @@
 }
 
 body {
-    font-family: 'Google Sans Flex';
+    font-family: 'Google Sans Flex', sans-serif;
     font-size: 1rem;
     font-weight: 400;
 }
 
-.cont-header {
+header {
     width: 100%;
     height: 80px;
 
@@ -47,67 +79,156 @@ body {
     align-items: center;
 
     img {
-        width: 260px;
+        width: 40px;
         height: auto;
+    }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        font-weight: 600;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 }
 
+main {
+    background-color: #EAEEE6;
+    padding: 4rem max(1rem, calc(50% - 720px));
 
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
 
 .book-card {
-    min-width: 198px;
-    min-height: 600px;
-    max-width: 480px;
-    max-height: auto;
-    background-color: beige;
-
-    margin: 1rem;
+    width: 288px;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 
-    border-radius: 40px;
+    border-radius: 32px;
+    background-color: #FAFFF3;
+    overflow: hidden;
 
-    h2 {
-        padding: 8px;
-        font-size: 24px;
-        font-weight: 800;
-        text-align: center;
+    .product-details,
+    .user-comments {
+    width: 100%;
+    padding: 1rem;
     }
 
-    img {
-        width: 180px;
-        height: auto;
+    h3 {
+        padding: 8px;
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-align: left;
+    }
+
+    .product-img {
+        width: 100%;
+        height: 288px;
+        padding: 2rem;
         object-fit: contain;
+        background-color: #fff;
+        border-bottom: 1px solid #D7DAD4;
+    }
+
+    .divider {
+        width: 100%;
+        margin: 0;
+        border: none;
+        border-top: 1px solid #D7DAD4;
+    }
+
+    .product-author { 
+        font-weight: 600; 
+    }
+
+    .cont-like-price {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .send-btn {
+        width: 48px;
+        height: 48px;
+        background-color: #090909;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+
+    }
+        .form-comments {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 }
 
-.like-heart-btn {
-    width: 40px;
-    height: 40px;
-    background-color: grey;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
+    .like-heart-btn {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
 
     img {
         width: 32px;
         height: 32px;
+        display: block;
     }
-}
+    }
+    .like-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-.cont-footer {
+footer {
+    width: 100%;
+    height: 80px;
+
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     img {
-        width: 260px;
+        width: 24px;
         height: auto;
+    }
+
+        span {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 }

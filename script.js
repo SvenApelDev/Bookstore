@@ -3,7 +3,7 @@
 
 let books = [
     {
-        title: 'Dieter Rams: Less and More',
+        title: 'Less and More',
         image: 'assets/images/book-rams.png',
         author: 'Klaus Klemp & Keiko Ueki-Polet',
         likes: 123,
@@ -16,22 +16,10 @@ let books = [
                 name: 'Leser123',
                 comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
             },
-            {
-                name: 'FantasyGuru',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            },
-            {
-                name: 'BookFan',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            },
-            {
-                name: 'Unbekannt',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            }
         ]
     },
     {
-        title: 'Paul Rand: A Designers Art',
+        title: 'A Designers Art',
         image: 'assets/images/book-rand.png',
         author: 'Paul Rand',
         likes: 126,
@@ -44,18 +32,6 @@ let books = [
                 name: 'Leser123',
                 comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
             },
-            {
-                name: 'FantasyGuru',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            },
-            {
-                name: 'BookFan',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            },
-            {
-                name: 'Unbekannt',
-                comment: 'Die Handlung ist sehr gut gelungen und handelt von einem abenteuerlichen Leben.'
-            }
         ]
     },
     {
@@ -70,7 +46,7 @@ let books = [
         comments: []
     },
     {
-        title: 'Sagmeister: Made You Look',
+        title: 'Made You Look',
         image: 'assets/images/book-sagmeister.png',
         author: 'Stefan Sagmeister & Peter Hall',
         likes: 304,
@@ -121,32 +97,33 @@ function getHeartIcon(i) {
 
 function getBookTemplate(i) {
     return /*html*/`
-        <div class="book-card">
-            <h2>${books[i].title}</h2>
-            <img src="${books[i].image}" alt="${books[i].title}">
-            <span>${books[i].likes}</span>
-            <button onclick="toggleLike(${i})" class="like-heart-btn"><img src="${getHeartIcon(i)}" alt=""></button>
+        <div class="book-card">            
+            <img class="product-img" src="${books[i].image}" alt="${books[i].title}">
+            <h3>${books[i].title}</h3>
+
             <div class="product-details">
                 <!-- Autor -->
-                <p class="product-author">Von: <span>${books[i].author}</span></p>
-    
+                <p class="product-author">${books[i].author}</p>    
                 <!-- Genre -->
-                <p class="product-genre">Genre: <span>${books[i].genre}</span></p>
-    
+                <p class="product-genre">${books[i].genre}</p>    
                 <!-- Veröffentlichung -->
-                <p class="product-date">
-                    Erschienen: ${books[i].publishedYear}
-                </p>
-    
-                <!-- Preis -->
-                <p class="product-price">
-                    Preis: <data value="${books[i].price}">${getFormattedPrice(i)}</data>
-                </p>
+                <p class="product-date">${books[i].publishedYear}</p>
+                <hr class="divider">
+                <div class="cont-like-price">
+                    <div class="like-group">
+                        <button onclick="toggleLike(${i})" class="like-heart-btn"><img src="${getHeartIcon(i)}" alt=""></button>
+                        <span>${books[i].likes}</span>
+                    </div>
+                    <data value="${books[i].price}">${getFormattedPrice(i)}</data>              
+                </div>
+                <hr class="divider">
             </div>
             <div class="user-comments">
                 ${getCommentsTemplate(i)}
-                <input type="text" id="comment-input-${i}" placeholder="Kommentar schreiben...">
-                <button onclick="addComment(${i})">Senden</button>
+                <div class="form-comments">
+                    <input type="text" id="comment-input-${i}" placeholder="Kommentar schreiben...">
+                    <button class="send-btn" onclick="addComment(${i})"><img src="assets/icons/send.svg" alt="send commit"></button>
+                </div>
             </div>  
         </div>       
     `;
@@ -154,7 +131,7 @@ function getBookTemplate(i) {
 
 function getCommentsTemplate(i) {
     if (books[i].comments.length === 0) {
-        return `<p class="no-comments">Bitte schreibe einen Kommentar!</p>`;
+        return `<p class="no-comments">Deine Meinung hier!</p>`;
     }
     let commentsHTML = "";
     for (let j = 0; j < books[i].comments.length; j++) {
@@ -204,7 +181,7 @@ function addComment(i) {
         return;
     }
     
-    books[i].comments.push({ name: "Max Mustermann", comment: text });
+    books[i].comments.push({ name: "Sven Apel", comment: text });
 
     saveToLocalStorage();
     renderBooks();
