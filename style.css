@@ -1,5 +1,5 @@
 
-/* ===== FONTS ===== */
+/* ------ FONTS ------ */
 
 /* montserrat-600 - latin */
 @font-face {
@@ -42,7 +42,7 @@
     src: url('assets/fonts/google-sans-flex-v21-latin-800.woff2') format('woff2');
 }
 
-/* ===== RESET ===== */
+/* ------ RESET ------ */
 
 * {
     padding: 0;
@@ -57,7 +57,7 @@ body {
     color: #090909;
 }
 
-/* ===== HEADER ===== */
+/* ------ HEADER ------ */
 
 header {
     width: 100%;
@@ -87,7 +87,7 @@ header {
     }
 }
 
-/* ===== MAIN ===== */
+/* ------ MAIN ------ */
 
 main {
     min-height: calc(100vh - 172px);
@@ -110,7 +110,7 @@ main {
     gap: 24px;
 }
 
-/* ===== BOOK CARD ===== */
+/* ------ BOOK CARD ------ */
 
 .book-card {
     width: 288px;
@@ -312,7 +312,7 @@ main {
     }
 }
 
-/* ===== FOOTER ===== */
+/* ------ FOOTER ------ */
 
 footer {
     width: 100%;
