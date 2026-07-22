@@ -1,13 +1,6 @@
+
 /* ===== FONTS ===== */
 
-/* montserrat-regular - latin */
-@font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: url('assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
-}
 /* montserrat-600 - latin */
 @font-face {
     font-display: swap;
@@ -16,23 +9,6 @@
     font-weight: 600;
     src: url('assets/fonts/montserrat-v31-latin-600.woff2') format('woff2');
 }
-/* montserrat-700 - latin */
-@font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    src: url('assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
-}
-/* montserrat-800 - latin */
-@font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 800;
-    src: url('assets/fonts/montserrat-v31-latin-800.woff2') format('woff2');
-}
-
 /* google-sans-flex-regular - latin */
 @font-face {
     font-display: swap;
@@ -85,12 +61,15 @@ body {
 
 header {
     width: 100%;
-    height: 80px;
+    height: 92px;
     padding: 1rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    border-top: 8px solid #EAEEE6;
 
     img {
         width: 40px;
@@ -111,11 +90,13 @@ header {
 /* ===== MAIN ===== */
 
 main {
+    min-height: calc(100vh - 172px);
     background-color: #EAEEE6;
     padding: 4rem max(1rem, calc(50% - 720px));
 
     h2 {
         margin-bottom: 2rem;
+        font-family: 'Montserrat', sans-serif;
         font-size: 2rem;
         font-weight: 600;
         text-align: center;
@@ -142,10 +123,11 @@ main {
     border-radius: 32px;
     background-color: #FAFFF3;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
     .container-product {
-    width: 100%;
-    flex: 1;
+        width: 100%;
+        flex: 1;
     }
 
     h3 {
@@ -209,12 +191,39 @@ main {
         background-color: transparent;
         border: none;
         cursor: pointer;
+        transition: transform 0.2s;
 
         img {
             width: 32px;
             height: 32px;
             display: block;
         }
+
+        &:hover,
+        &:focus-visible {
+            transform: scale(1.15);
+        }
+    }
+
+    .user-comments {
+        width: 100%;
+        height: 120px;
+        overflow-y: auto;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+        background-color: #EBF2E5;
+        border-radius: 0.5rem;
+    }
+
+    .user-comments:has(.no-comments) {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .comments {
@@ -228,18 +237,9 @@ main {
         font-weight: 600;
     }
 
-    .user-comments {
-        width: 100%;
-        height: 120px;
-        overflow-y: auto;
-        margin-top: 0.5rem;
-        padding: 0.75rem;
-        background-color: #EBF2E5;
-        border-radius: 0.5rem;
-    }
-
     .form-comment {
         padding: 0 1rem 1rem 1rem;
+
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -252,11 +252,34 @@ main {
             font-size: 1rem;
             border-radius: 8px;
             border: 1px solid #EBF2E5;
+            transition: border-color 0.2s;
+
+            &:hover {
+                border-color: #969993;
+            }
+
+            &:hover::placeholder {
+                font-style: italic;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: #090909;
+            }
+
+            &:focus::placeholder {
+                color: transparent;
+            }
         }
 
         input::placeholder {
             color: #585955;
         }
+    }
+
+    .form-comment:has(input:placeholder-shown) .send-btn {
+        opacity: 0.4;
+        pointer-events: none;
     }
 
     .send-btn {
@@ -271,9 +294,20 @@ main {
         align-items: center;
         justify-content: center;
 
+        transition: background-color 0.2s, opacity 0.2s;
+
         img {
             width: 24px;
             height: 24px;
+            transition: transform 0.3s;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover img {
+            transform: rotate(45deg);
         }
     }
 }
@@ -288,15 +322,18 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4px;
+
+    border-bottom: 8px solid #EAEEE6;
 
     img {
-        width: 24px;
+        width: 20px;
         height: auto;
     }
 
     span {
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         font-weight: 600;
 
         display: flex;
